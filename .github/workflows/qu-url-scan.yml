@@ -1,13 +1,20 @@
+name: QA URL Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+
 jobs:
   scan:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout website repo
-        uses: actions/checkout
+        uses: actions/checkout@v4
 
       - name: Checkout scanner repo
-        uses: actions/checkout
+        uses: actions/checkout@v4
         with:
           repository: Seyminie/qa-automation
           path: scanner
