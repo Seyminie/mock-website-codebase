@@ -32,5 +32,4 @@ jobs:
 
       - name: Run QA URL Scanner
         working-directory: scanner
-        run: |
-          python main.py ${{ github.workspace }} || exit 1
+        run: python main.py ../ || exit 1
