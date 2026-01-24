@@ -21,4 +21,4 @@ jobs:
         run: pip install -r scanner/requirements.txt
 
       - name: Run QA URL Scanner
-        run: python scanner/main.py .
+        run: python scanner/main.py ./
