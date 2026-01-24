@@ -6,22 +6,22 @@ on:
       - main
 
 permissions:
-  contents: read   # required to read another repo
+  contents: read
 
 jobs:
   scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout website repo (PR code)
+      - name: Checkout website repo
         uses: actions/checkout@v4
 
-      - name: Checkout scanner repo
+      - name: Checkout QA automation (private repo)
         uses: actions/checkout@v4
         with:
           repository: Seyminie/qa-automation
           path: scanner
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.QA_AUTOMATION }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
