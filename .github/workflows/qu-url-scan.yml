@@ -29,5 +29,5 @@ jobs:
           python-version: "3.11"
 
       - name: Run QA URL Scanner
-        working-directory: scanner   # run inside QA automation repo
-        run: python main.py ../      # '../' points to website repo
+        working-directory: scanner
+        run: python main.py ${{ github.workspace }}
