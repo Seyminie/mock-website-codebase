@@ -31,5 +31,6 @@ jobs:
           python-version: "3.11"
 
       - name: Run QA URL Scanner
-        working-directory: scanner/scan
-        run: python main.py ../../ || exit 1
+        working-directory: scanner
+        run: python scanner/main.py ../ || exit 1
+
