@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout website repo
+      - name: Checkout mock repo
         uses: actions/checkout@v4
 
-      - name: Checkout QA automation (private repo)
+      - name: Checkout QA automation
         uses: actions/checkout@v4
         with:
           repository: Seyminie/qa-automation
@@ -29,5 +29,5 @@ jobs:
           python-version: "3.11"
 
       - name: Run QA URL Scanner
-        working-directory: scanner
-        run: python main.py ../
+        working-directory: scanner   # run inside QA automation repo
+        run: python main.py ../      # '../' points to website repo
