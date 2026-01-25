@@ -22,7 +22,7 @@ function loadAsset(url) {
     document.head.appendChild(link);
 }
 
-// Load assets
+
 loadAsset(cachedCssUrl);
 loadAsset(logoPath);
 
