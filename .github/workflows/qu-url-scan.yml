@@ -1,24 +1,35 @@
+name: QA URL Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
 jobs:
   scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout website repo
-        uses: actions/checkout
+      - name: Checkout mock repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Checkout scanner repo
-        uses: actions/checkout
+      - name: Checkout QA automation
+        uses: actions/checkout@v4
         with:
           repository: Seyminie/qa-automation
           path: scanner
+          token: ${{ secrets.QA_AUTOMATION }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: pip install -r scanner/requirements.txt
-
       - name: Run QA URL Scanner
-        run: python scanner/main.py ./
+        working-directory: scanner
+        run: python scanner/main.py ${{ github.workspace }} || exit 1
