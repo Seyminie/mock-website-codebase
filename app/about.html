@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page - QA Test</title>
+
+    <!-- ⚠️ WARNING: absolute CSS -->
+    <link rel="stylesheet" href="https://cdn.example.com/css/about.css">
+
+    <!-- ✅ VALID: relative CSS -->
+    <link rel="stylesheet" href="/css/about.css">
+</head>
+<body>
+<h1>About Page</h1>
+
+<!-- ⚠️ WARNING: absolute image -->
+<img src="https://cdn.example.com/images/team.jpg" alt="Team">
+
+<!-- ✅ VALID: relative image -->
+<img src="/images/about-logo.png" alt="Logo">
+
+<!-- ⚠️ WARNING: hard-coded index.html link -->
+<a href="/index.html">Home</a>
+
+<!-- ✅ VALID: relative contact page link -->
+<a href="/contact">Contact</a>
+</body>
+</html>
