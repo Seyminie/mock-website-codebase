@@ -1,15 +1,18 @@
 /**
  * Mock JS file for QA URL scanner testing
- * Contains only warnings and valid URLs (no errors)
+ * Contains ERRORS, WARNINGS, and valid URLs
  */
 
 console.log("Starting mock app.js");
 
-// ⚠️ WARNING: absolute production API URL
-const apiUrl = "https://api.example.com/v1/users";
+// ❌ ERROR: staging API URL
+const stagingApi = "https://staging.api.example.com/v1/orders";
 
 // ✅ VALID: relative API URL
 const loginUrl = "/api/v1/login";
+
+// ❌ ERROR: localhost reference
+const localDebug = "http://localhost:3000/debug";
 
 // ⚠️ WARNING: absolute production CDN asset
 const cdnJs = "https://cdn.example.com/js/plugin.js";
@@ -17,7 +20,10 @@ const cdnJs = "https://cdn.example.com/js/plugin.js";
 // ✅ VALID: relative JS asset
 const localJs = "/js/local.js";
 
-// Function to simulate loading assets
+// ❌ ERROR: test domain API
+const testApi = "https://test.example.com/v2/data";
+
+// Function to simulate loading scripts
 function loadScript(url) {
     const script = document.createElement("script");
     script.src = url;
@@ -25,7 +31,9 @@ function loadScript(url) {
 }
 
 // Load scripts
-loadScript(apiUrl);
+loadScript(stagingApi);
 loadScript(loginUrl);
+loadScript(localDebug);
 loadScript(cdnJs);
 loadScript(localJs);
+loadScript(testApi);
