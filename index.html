@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock QA Test Page</title>
+
+    <!-- ❌ ERROR: absolute staging URL -->
+    <link rel="stylesheet" href="https://staging.example.com/css/main.css">
+
+    <!-- ✅ VALID: relative CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- ❌ ERROR: dev domain for JS -->
+    <script src="https://dev.example.com/js/app.js"></script>
+
+    <!-- ✅ VALID: relative JS -->
+    <script src="/js/app.js"></script>
+</head>
+<body>
+<h1>Mock QA Page</h1>
+
+<!-- ❌ ERROR: staging image -->
+<img src="https://staging.example.com/images/banner.jpg" alt="Banner">
+
+<!-- ✅ VALID: relative image -->
+<img src="/images/logo.png" alt="Logo">
+
+<!-- ❌ ERROR: wp-content staging path -->
+<img src="wp-content/staging.example.com/uploads/hero.jpg" alt="Hero">
+
+<!-- ✅ VALID: production relative wp-content -->
+<img src="/wp-content/uploads/logo.svg" alt="Logo">
+
+<!-- ❌ ERROR: localhost reference -->
+<a href="http://localhost:3000/debug">Debug Link</a>
+
+<!-- ✅ VALID: relative link -->
+<a href="/contact">Contact</a>
+
+<!-- ❌ ERROR: test domain -->
+<a href="https://test.example.com/login">Test Login</a>
+
+<!-- ✅ VALID: relative link -->
+<a href="/about">About</a>
+</body>
+</html>
